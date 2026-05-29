@@ -1,0 +1,8 @@
+alias bi='brew install'
+alias bic='brew install --cask'
+alias bif='brew info'
+alias bl='brew list'
+alias bs='brew search'
+alias bu='brew uninstall'
+alias buc='brew uninstall --cask'
+alias buu='brew update && brew upgrade'

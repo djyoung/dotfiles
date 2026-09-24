@@ -1,5 +1,9 @@
+# Taps
+tap "anomalyco/tap"
+
 # Shell & terminal
 brew "antidote"
+brew "btop"
 brew "fd"
 brew "fzf"
 brew "herdr"
@@ -9,6 +13,7 @@ brew "zoxide"
 cask "ghostty"
 
 # Dev tools
+brew "bun"
 brew "gh"
 brew "git"
 brew "hunk"
@@ -16,12 +21,17 @@ brew "lazygit"
 brew "node"
 cask "docker-desktop"
 
-# Editors & AI
-cask "chatgpt"
-cask "claude-code@latest"
+# Editors
 cask "cursor"
 cask "visual-studio-code"
 cask "zed"
+
+# AI tools
+brew "anomalyco/tap/opencode"
+cask "chatgpt"
+cask "claude"
+cask "claude-code@latest"
+cask "codex"
 
 # Fonts
 cask "font-fira-code-nerd-font"
@@ -31,8 +41,10 @@ cask "cleanshot"
 cask "lunar"
 cask "nordvpn"
 cask "notion"
+cask "proton-pass"
 cask "raycast"
 cask "slack"
+cask "stats"
 
 # Browsers & media
 cask "google-chrome"

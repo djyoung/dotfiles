@@ -1,13 +1,15 @@
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[rebase]
+	autoStash = true
+[status]
+	short = true
 [user]
 	email = me@djy.dev
 	name = Daniel Young
-[pull]
-	rebase = true
-[fetch]
-	prune = true
-[rebase]
-	autoStash = true
-[push]
-	autoSetupRemote = true
-[status]
-	short = true

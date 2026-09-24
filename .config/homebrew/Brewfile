@@ -1,27 +1,38 @@
+# Shell & terminal
 brew "antidote"
 brew "fd"
 brew "fzf"
-brew "gh"
-brew "git"
 brew "herdr"
-brew "hunk"
-brew "lazygit"
-brew "node"
 brew "rg"
 brew "starship"
 brew "zoxide"
+cask "ghostty"
+
+# Dev tools
+brew "gh"
+brew "git"
+brew "hunk"
+brew "lazygit"
+brew "node"
+cask "docker-desktop"
+
+# Editors & AI
 cask "chatgpt"
 cask "claude-code@latest"
-cask "cleanshot"
 cask "cursor"
-cask "docker-desktop"
+cask "zed"
+
+# Fonts
 cask "font-fira-code-nerd-font"
-cask "ghostty"
-cask "google-chrome"
+
+# Productivity & utilities
+cask "cleanshot"
 cask "lunar"
 cask "nordvpn"
 cask "notion"
 cask "raycast"
 cask "slack"
+
+# Browsers & media
+cask "google-chrome"
 cask "spotify"
-cask "zed"

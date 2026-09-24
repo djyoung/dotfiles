@@ -1,0 +1,56 @@
+onboarding = false
+
+# Catppuccin + powerline look. Matches ghostty (Catppuccin Mocha/Latte) and
+# starship (catppuccin_mocha palette). Requires a Nerd Font (FiraCode Nerd Font).
+
+[theme]
+auto_switch = true
+dark_name = "catppuccin"
+light_name = "catppuccin-latte"
+
+# Catppuccin Mocha (dark) / Latte (light) overrides so the accent, sidebar and
+# status colors line up exactly with the rest of the terminal setup.
+[theme.custom.dark]
+panel_bg = "#1e1e2e"      # base
+sidebar_bg = "#181825"    # mantle
+active_row_bg = "#313244" # surface0
+selection_bg = "#45475a"  # surface1
+overlay0 = "#b4befe"      # lavender: inactive pane borders (focused uses accent); stock is #6c7086
+overlay1 = "#a6adc8"      # subtext0: brighter than stock #7f849c
+text = "#cdd6f4"
+accent = "#cba6f7"        # mauve
+red = "#f38ba8"
+green = "#a6e3a1"
+
+[theme.custom.light]
+panel_bg = "#eff1f5"
+sidebar_bg = "#e6e9ef"
+active_row_bg = "#ccd0da"
+selection_bg = "#bcc0cc"
+overlay0 = "#5c5f77"      # subtext1: inactive pane borders (focused uses accent); stock is #9ca0b0
+overlay1 = "#6c6f85"      # subtext0: darker than stock #8c8fa1
+text = "#4c4f69"
+accent = "#8839ef"
+red = "#d20f39"
+green = "#40a02b"
+
+[ui]
+# Borders: frame every pane (even a lone one), keep gaps between splits, and
+# label panes with the detected agent name.
+pane_borders = "always"
+pane_outer_borders = true
+pane_gaps = true
+show_agent_labels_on_pane_borders = true
+pane_scrollbars = false
+
+# Distinct glyphs instead of plain dots for agent state.
+status_indicators = "symbols"
+
+# Powerline-style status segments at the right edge of the tab bar.
+tab_bar_position = "top"
+tab_bar_right_separator = "  "
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "hostname" },
+  { type = "datetime", format = "%a %d %b  %H:%M" },
+]

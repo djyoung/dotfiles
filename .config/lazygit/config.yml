@@ -1,0 +1,34 @@
+# Catppuccin Mocha, matching ghostty, starship and herdr.
+# Palette: https://github.com/catppuccin/lazygit (mauve accent, same as herdr).
+# lazygit has no auto light/dark switching; swap in the Latte values from that
+# repo if you ever want a light theme.
+
+gui:
+  theme:
+    activeBorderColor:
+      - "#cba6f7" # mauve
+      - bold
+    inactiveBorderColor:
+      - "#a6adc8" # subtext0
+    optionsTextColor:
+      - "#cba6f7" # mauve
+    selectedLineBgColor:
+      - "#313244" # surface0
+    inactiveViewSelectedLineBgColor:
+      - bold
+    cherryPickedCommitFgColor:
+      - "#cba6f7" # mauve
+    cherryPickedCommitBgColor:
+      - "#45475a" # surface1
+    markedBaseCommitFgColor:
+      - "#cba6f7" # mauve
+    markedBaseCommitBgColor:
+      - "#f9e2af" # yellow
+    unstagedChangesColor:
+      - "#f38ba8" # red
+    defaultFgColor:
+      - "#cdd6f4" # text
+    searchingActiveBorderColor:
+      - "#f9e2af" # yellow
+  authorColors:
+    "*": "#b4befe" # lavender

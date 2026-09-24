@@ -1,0 +1,14 @@
+{
+  "auto_install_extensions": {
+    "catppuccin": true
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
+  },
+  "buffer_font_family": "FiraCode Nerd Font",
+  "terminal": {
+    "font_family": "FiraCode Nerd Font"
+  }
+}

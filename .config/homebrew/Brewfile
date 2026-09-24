@@ -3,7 +3,7 @@ brew "antidote"
 brew "fd"
 brew "fzf"
 brew "herdr"
-brew "rg"
+brew "ripgrep"
 brew "starship"
 brew "zoxide"
 cask "ghostty"
@@ -20,6 +20,7 @@ cask "docker-desktop"
 cask "chatgpt"
 cask "claude-code@latest"
 cask "cursor"
+cask "visual-studio-code"
 cask "zed"
 
 # Fonts
@@ -35,4 +36,5 @@ cask "slack"
 
 # Browsers & media
 cask "google-chrome"
+cask "helium-browser"
 cask "spotify"

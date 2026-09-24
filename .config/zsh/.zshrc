@@ -1,7 +1,9 @@
 source "${ZDOTDIR}/exports.zsh"
+source "${ZDOTDIR}/options.zsh"
+source "${ZDOTDIR}/plugins.zsh"
+source "${ZDOTDIR}/completion.zsh"
+source "${ZDOTDIR}/plugins_post.zsh"
+source "${ZDOTDIR}/keybindings.zsh"
+source "${ZDOTDIR}/navigation.zsh"
+source "${ZDOTDIR}/prompt.zsh"
 source "${ZDOTDIR}/aliases.zsh"
-
-source "$(brew --prefix antidote)/share/antidote/antidote.zsh"
-antidote load
-
-eval "$(starship init zsh)"

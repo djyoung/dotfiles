@@ -48,4 +48,4 @@ Makefile        # link + packages targets
 - Prefer editing the repo copy (which the symlinks point to) over files in `~/.config`. Don't replace a symlink with a regular file.
 - `make link` is idempotent (`ln -sfn`) and safe to re-run, but it overwrites `~/.zshenv`. `make packages` installs software, so don't run it unless the task requires it.
 - There is no test suite. Verify changes with `zsh -n`, `make -n`, and a fresh shell where relevant.
-- Commit with short conventional-style messages (e.g. `feat: ...`, `fix: ...`, `docs: ...`). Changes land through pull requests, not direct pushes to `main`.
+- Commit with short conventional-style messages (e.g. `feat: ...`, `fix: ...`, `docs: ...`). Changes don't need to go through pull requests.

@@ -44,6 +44,9 @@ After setup, restart your terminal and you're ready to go! 🚀
 ├── herdr/      # terminal workspace manager
 ├── hunk/       # diff viewer
 ├── zed/        # editor
+├── btop/       # resource monitor
+├── opencode/   # AI coding agent
+├── gh/         # GitHub CLI (config only, not auth)
 └── homebrew/   # Brewfile (global bundle)
 ```
 
@@ -55,6 +58,7 @@ Files are symlinked one by one, so runtime files (history, `.zcompdump`, compile
 - [Starship](https://starship.rs) - cross-shell prompt
 - [fzf](https://github.com/junegunn/fzf), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide) - fuzzy finding, search and smarter `cd`
 - [Ghostty](https://ghostty.org) - terminal emulator
+- [btop](https://github.com/aristocratos/btop), [opencode](https://opencode.ai), [gh](https://cli.github.com) - resource monitor, AI coding agent and GitHub CLI
 - [Fira Code Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) - prompt/icon glyphs
 - [lazygit](https://github.com/jesseduffield/lazygit), [herdr](https://herdr.dev), [hunk](https://hunk.dev), [Zed](https://zed.dev) - git TUI, workspace manager, diff viewer and editor
 

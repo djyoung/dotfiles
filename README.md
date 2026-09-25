@@ -44,7 +44,7 @@ After setup, restart your terminal and you're ready to go! 🚀
 ├── herdr/      # terminal workspace manager
 ├── hunk/       # diff viewer
 ├── zed/        # editor
-├── btop/       # resource monitor
+├── btop/       # resource monitor (+ Catppuccin theme)
 ├── opencode/   # AI coding agent
 ├── gh/         # GitHub CLI (config only, not auth)
 └── homebrew/   # Brewfile (global bundle)
@@ -64,7 +64,7 @@ Files are symlinked one by one, so runtime files (history, `.zcompdump`, compile
 
 ## Theming
 
-Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship is set to `catppuccin_mocha` and lazygit is Mocha-only. Hex values are duplicated across the app configs, so change them together.
+Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship is set to `catppuccin_mocha`; lazygit and btop are Mocha-only. Hex values are duplicated across the app configs, so change them together.
 
 ## Zsh
 

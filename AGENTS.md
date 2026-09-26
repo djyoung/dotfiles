@@ -21,6 +21,9 @@ Personal macOS dotfiles: a modular zsh setup plus configs for a handful of termi
 ├── herdr/      # terminal workspace manager
 ├── hunk/       # diff viewer
 ├── zed/        # editor
+├── btop/       # resource monitor (+ Catppuccin Mocha theme)
+├── opencode/   # AI coding agent (opencode.jsonc only)
+├── gh/         # GitHub CLI (config.yml only; hosts.yml holds auth and is gitignored)
 └── homebrew/   # Brewfile (global bundle)
 Makefile        # link + packages targets
 ```
@@ -38,7 +41,7 @@ Makefile        # link + packages targets
 
 ## Other conventions
 
-- **Theming:** everything uses Catppuccin, Mocha (dark) and Latte (light). Hex values are duplicated across the Ghostty, Zed, herdr, lazygit and Starship configs, so a color change must be applied to all of them.
+- **Theming:** everything uses Catppuccin, Mocha (dark) and Latte (light). Hex values are duplicated across the Ghostty, Zed, herdr, lazygit, btop and Starship configs, so a color change must be applied to all of them.
 - **Brewfile:** entries are grouped under comment headers (Taps, Shell & terminal, Dev tools, Editors, AI tools, Fonts, Productivity & utilities). Add new packages to the matching group, alphabetized within it, using `cask` for GUI apps.
 - **Git identity** lives in `.config/git/config`. Don't change the user name or email.
 - **README:** if you add or remove a tool, module or Make target, update the Layout / Tools / Zsh tables in `README.md` to match.

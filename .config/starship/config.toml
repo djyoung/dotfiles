@@ -256,6 +256,18 @@ base = "#eff1f5"
 mantle = "#e6e9ef"
 crust = "#dce0e8"
 
+# Light-mode palette: Latte accents at 35% over base, with text-coloured
+# segment text, so the powerline bars aren't as harsh as stock Latte.
+# prompt.zsh selects it in light mode.
+[palettes.catppuccin_latte_pastel]
+red = "#e5a2b3"
+peach = "#f4c0a3"
+yellow = "#e9cea9"
+green = "#b2d5ae"
+sapphire = "#a7d4df"
+lavender = "#c3ccf8"
+crust = "#4c4f69"
+
 [palettes.catppuccin_macchiato]
 rosewater = "#f4dbd6"
 flamingo = "#f0c6c6"

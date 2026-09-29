@@ -64,7 +64,7 @@ Files are symlinked one by one, so runtime files (history, `.zcompdump`, compile
 
 ## Theming
 
-Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship checks the appearance before each prompt and uses a generated Latte copy of its config in light mode; lazygit (via `lg`) and btop pick Mocha or Latte when launched. Hex values are duplicated across the app configs, so change them together.
+Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship checks the appearance before each prompt and uses a generated copy of its config with a softer pastel Latte palette in light mode; lazygit (via `lg`) and btop pick Mocha or Latte when launched. Hex values are duplicated across the app configs, so change them together.
 
 ## Zsh
 

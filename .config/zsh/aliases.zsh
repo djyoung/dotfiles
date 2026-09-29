@@ -44,7 +44,16 @@ alias ll='ls -lh'
 alias lla='ls -lAh'
 alias reload='exec zsh'
 
-alias lg='lazygit'
+# lazygit can't follow the system appearance, so pick the theme at launch:
+# Mocha lives in config.yml, Latte overrides are layered on in light mode.
+lg() {
+  local dir="${XDG_CONFIG_HOME:-$HOME/.config}/lazygit"
+  if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" != Dark ]]; then
+    LG_CONFIG_FILE="$dir/config.yml,$dir/theme-light.yml" lazygit "$@"
+  else
+    lazygit "$@"
+  fi
+}
 
 # Claude
 alias cc='claude'

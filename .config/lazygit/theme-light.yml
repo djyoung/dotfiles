@@ -1,0 +1,33 @@
+# Catppuccin Latte overrides, layered on top of config.yml in light mode.
+# Loaded by the `lg` function in zsh/aliases.zsh via LG_CONFIG_FILE.
+# Palette: https://github.com/catppuccin/lazygit
+
+gui:
+  theme:
+    activeBorderColor:
+      - "#8839ef" # mauve
+      - bold
+    inactiveBorderColor:
+      - "#6c6f85" # subtext0
+    optionsTextColor:
+      - "#8839ef" # mauve
+    selectedLineBgColor:
+      - "#ccd0da" # surface0
+    inactiveViewSelectedLineBgColor:
+      - bold
+    cherryPickedCommitFgColor:
+      - "#8839ef" # mauve
+    cherryPickedCommitBgColor:
+      - "#bcc0cc" # surface1
+    markedBaseCommitFgColor:
+      - "#8839ef" # mauve
+    markedBaseCommitBgColor:
+      - "#df8e1d" # yellow
+    unstagedChangesColor:
+      - "#d20f39" # red
+    defaultFgColor:
+      - "#4c4f69" # text
+    searchingActiveBorderColor:
+      - "#df8e1d" # yellow
+    authorColors:
+      "*": "#7287fd" # lavender

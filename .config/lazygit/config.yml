@@ -1,7 +1,7 @@
 # Catppuccin Mocha, matching ghostty, starship and herdr.
 # Palette: https://github.com/catppuccin/lazygit (mauve accent, same as herdr).
-# lazygit has no auto light/dark switching; swap in the Latte values from that
-# repo if you ever want a light theme.
+# lazygit has no auto light/dark switching, so the `lg` function in
+# zsh/aliases.zsh layers theme-light.yml on top when macOS is in light mode.
 
 gui:
   theme:
@@ -30,5 +30,5 @@ gui:
       - "#cdd6f4" # text
     searchingActiveBorderColor:
       - "#f9e2af" # yellow
-  authorColors:
-    "*": "#b4befe" # lavender
+    authorColors:
+      "*": "#b4befe" # lavender

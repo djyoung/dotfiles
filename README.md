@@ -64,7 +64,7 @@ Files are symlinked one by one, so runtime files (history, `.zcompdump`, compile
 
 ## Theming
 
-Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship is set to `catppuccin_mocha`; lazygit picks Mocha or Latte when launched via `lg`; btop is Mocha-only. Hex values are duplicated across the app configs, so change them together.
+Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship checks the appearance before each prompt and uses a generated Latte copy of its config in light mode; lazygit (via `lg`) and btop pick Mocha or Latte when launched. Hex values are duplicated across the app configs, so change them together.
 
 ## Zsh
 
@@ -79,8 +79,8 @@ Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (li
 | `plugins_post.zsh` | Antidote stage 2: `.zsh_plugins_post.txt`                     |
 | `keybindings.zsh`  | History substring search on ↑/↓; `fzf --zsh` integration      |
 | `navigation.zsh`   | zoxide                                                        |
-| `prompt.zsh`       | Starship                                                      |
-| `aliases.zsh`      | Git, Homebrew, navigation and Claude aliases                  |
+| `prompt.zsh`       | Starship, with light/dark palette switching                   |
+| `aliases.zsh`      | Git, Homebrew, navigation and Claude aliases; `lg`/`btop` theme wrappers |
 
 ### Plugin order
 

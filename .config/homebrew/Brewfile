@@ -14,11 +14,11 @@ cask "ghostty"
 
 # Dev tools
 brew "bun"
+brew "fnm"
 brew "gh"
 brew "git"
 brew "hunk"
 brew "lazygit"
-brew "node"
 cask "docker-desktop"
 
 # Editors

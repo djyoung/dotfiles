@@ -75,7 +75,7 @@ Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (li
 | `exports.zsh`      | Env vars (`FZF_DEFAULT_OPTS`, `STARSHIP_CONFIG`)              |
 | `options.zsh`      | `setopt` options and history-substring-search colors          |
 | `plugins.zsh`      | Antidote stage 1: `.zsh_plugins.txt`                          |
-| `completion.zsh`   | Docker completions on `fpath`, `compinit -C`, fzf-tab zstyles |
+| `completion.zsh`   | Docker completions on `fpath`, `compinit -C`, fzf-tab zstyles, alias expansions in command completion |
 | `plugins_post.zsh` | Antidote stage 2: `.zsh_plugins_post.txt`                     |
 | `keybindings.zsh`  | History substring search on ↑/↓; `fzf --zsh` integration      |
 | `navigation.zsh`   | zoxide                                                        |

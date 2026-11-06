@@ -2,19 +2,31 @@
 
 Simple macOS shell setup for a fast, clean terminal experience. ✨
 
+> **`work` branch:** a slimmed-down setup for a work machine. It drops personal-only tools, uses mise instead of fnm, tracks VS Code settings and keeps the work git identity out of the repo. Bring shared changes across with `git merge main`.
+
 ## What It Does
 
 Running `make` will:
 
 1. 🔗 Write `~/.zshenv` with `XDG_CONFIG_HOME` and `ZDOTDIR`
-2. 🧩 Symlink each file from `.config/` into `XDG_CONFIG_HOME` (real dirs; generated files stay in `~/.config`)
+2. 🧩 Symlink each file from `.config/` into `XDG_CONFIG_HOME` (real dirs; generated files stay in `~/.config`), and `vscode/*.json` into VS Code's user folder (an existing real file is kept as `.bak`)
 3. 🍺 Install [Homebrew](https://brew.sh) if missing
 4. 📦 Install packages from [Brewfile](.config/homebrew/Brewfile)
 
 ## Quick Start
 
+On a new Mac, one command does everything:
+
 ```bash
-git clone https://github.com/djyoung/dotfiles.git
+curl -fsSL https://raw.githubusercontent.com/djyoung/dotfiles/work/bootstrap.sh | bash
+```
+
+[`bootstrap.sh`](bootstrap.sh) installs Homebrew (and with it the Xcode Command Line Tools), clones this repo to `~/Code/dotfiles` on the `work` branch, runs `make`, asks once for your commit name and work email (written to `~/.config/git/config.local`, never committed), creates an SSH key and runs `gh auth login`. It's safe to re-run; finished steps are skipped. Set `DOTFILES_DIR` to clone somewhere else.
+
+Or by hand:
+
+```bash
+git clone --branch work https://github.com/djyoung/dotfiles.git
 cd dotfiles
 make
 ```
@@ -39,15 +51,12 @@ After setup, restart your terminal and you're ready to go! 🚀
 ├── zsh/        # ZDOTDIR: modular zsh config
 ├── starship/   # prompt
 ├── ghostty/    # terminal
-├── git/        # defaults + identity
-├── lazygit/    # git TUI
-├── herdr/      # terminal workspace manager
-├── hunk/       # diff viewer
-├── zed/        # editor
-├── btop/       # resource monitor (+ Catppuccin theme)
-├── opencode/   # AI coding agent
+├── git/        # defaults + identity (includes untracked config.local)
+├── mise/       # global runtime versions (Node, bun)
 ├── gh/         # GitHub CLI (config only, not auth)
-└── homebrew/   # Brewfile (global bundle)
+└── homebrew/   # Brewfile (global bundle, incl. VS Code extensions)
+vscode/         # VS Code settings, linked into ~/Library/Application Support/Code/User
+bootstrap.sh    # one-shot new-machine setup
 ```
 
 Files are symlinked one by one, so runtime files (history, `.zcompdump`, compiled Antidote bundles) stay in `~/.config` and out of the repo.
@@ -58,13 +67,14 @@ Files are symlinked one by one, so runtime files (history, `.zcompdump`, compile
 - [Starship](https://starship.rs) - cross-shell prompt
 - [fzf](https://github.com/junegunn/fzf), [fd](https://github.com/sharkdp/fd), [ripgrep](https://github.com/BurntSushi/ripgrep), [zoxide](https://github.com/ajeetdsouza/zoxide) - fuzzy finding, search and smarter `cd`
 - [Ghostty](https://ghostty.org) - terminal emulator
-- [btop](https://github.com/aristocratos/btop), [opencode](https://opencode.ai), [gh](https://cli.github.com) - resource monitor, AI coding agent and GitHub CLI
+- [gh](https://cli.github.com) - GitHub CLI
+- [mise](https://mise.jdx.dev) - runtime version manager (Node, bun, and anything else a project needs)
 - [Fira Code Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/FiraCode) - prompt/icon glyphs
-- [lazygit](https://github.com/jesseduffield/lazygit), [herdr](https://herdr.dev), [hunk](https://hunk.dev), [Zed](https://zed.dev) - git TUI, workspace manager, diff viewer and editor
+- [VS Code](https://code.visualstudio.com) - editor, with settings in `vscode/` and extensions in the Brewfile
 
 ## Theming
 
-Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty, Zed and herdr switch automatically with the system appearance; Starship checks the appearance before each prompt and uses a generated copy of its config with a softer pastel Latte palette in light mode; lazygit (via `lg`) and btop pick Mocha or Latte when launched. Hex values are duplicated across the app configs, so change them together.
+Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (light). Ghostty and VS Code switch automatically with the system appearance; Starship checks the appearance before each prompt and uses a generated copy of its config with a softer pastel Latte palette in light mode. Hex values are duplicated across the app configs, so change them together.
 
 ## Zsh
 
@@ -72,7 +82,7 @@ Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (li
 
 | File               | Role                                                          |
 | ------------------ | ------------------------------------------------------------- |
-| `exports.zsh`      | Env vars (`FZF_DEFAULT_OPTS`, `STARSHIP_CONFIG`)              |
+| `exports.zsh`      | Env vars (`FZF_DEFAULT_OPTS`, `STARSHIP_CONFIG`); `mise activate` |
 | `options.zsh`      | `setopt` options and history-substring-search colors          |
 | `plugins.zsh`      | Antidote stage 1: `.zsh_plugins.txt`                          |
 | `completion.zsh`   | Docker completions on `fpath`, `compinit -C`, fzf-tab zstyles, alias expansions in command completion |
@@ -80,7 +90,7 @@ Everything uses [Catppuccin](https://catppuccin.com): Mocha (dark) and Latte (li
 | `keybindings.zsh`  | History substring search on ↑/↓; `fzf --zsh` integration      |
 | `navigation.zsh`   | zoxide                                                        |
 | `prompt.zsh`       | Starship, with light/dark palette switching                   |
-| `aliases.zsh`      | Git, Homebrew, navigation and Claude aliases; `lg`/`btop` theme wrappers |
+| `aliases.zsh`      | Git, Homebrew, navigation and Claude aliases                  |
 
 ### Plugin order
 

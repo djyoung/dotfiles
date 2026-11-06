@@ -13,3 +13,6 @@
 [user]
 	email = me@djy.dev
 	name = Daniel Young
+[include]
+	# Machine-specific overrides (e.g. work email), written by bootstrap.sh; not tracked
+	path = ~/.config/git/config.local

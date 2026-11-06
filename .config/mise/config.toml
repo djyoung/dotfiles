@@ -1,0 +1,8 @@
+# Global runtime defaults; projects override with their own mise.toml
+[tools]
+node = "lts"
+bun = "latest"
+
+[settings]
+# Honour .nvmrc / .node-version files, as fnm did
+idiomatic_version_file_enable_tools = ["node"]

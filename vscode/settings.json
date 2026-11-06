@@ -1,0 +1,88 @@
+{
+  // ── Appearance ──────────────────────────────────────────────
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Catppuccin Mocha",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.iconTheme": "catppuccin-mocha",
+  "workbench.sideBar.location": "right",
+  "workbench.startupEditor": "none",
+
+  // ── Editor ──────────────────────────────────────────────────
+  "editor.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.lineNumbers": "relative",
+  "editor.cursorSurroundingLines": 8,
+  "editor.accessibilitySupport": "off",
+  "editor.inlayHints.enabled": "offUnlessPressed",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "terminal.integrated.fontLigatures.enabled": true,
+
+  // ── Files ───────────────────────────────────────────────────
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  // ── Git ─────────────────────────────────────────────────────
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.pruneOnFetch": true,
+
+  // ── TypeScript ──────────────────────────────────────────────
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // ── Vim ─────────────────────────────────────────────────────
+  "vim.leader": "<space>",
+  "vim.useSystemClipboard": true,
+  "vim.incsearch": true,
+  "vim.hlsearch": true,
+  "vim.highlightedyank.enable": true,
+  "vim.easymotion": true,
+  "vim.surround": true,
+  "vim.sneak": true,
+  "vim.insertModeKeyBindings": [{ "before": ["j", "k"], "after": ["<Esc>"] }],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "w"],
+      "commands": ["workbench.action.files.save"],
+    },
+    { "before": ["<leader>", "e"], "commands": ["workbench.view.explorer"] },
+  ],
+  // Let VS Code keep these Ctrl shortcuts instead of Vim
+  "vim.handleKeys": {
+    "<C-p>": false,
+    "<C-b>": false,
+    "<C-w>": false,
+  },
+  // Run Vim in its own extension host for responsiveness
+  "extensions.experimental.affinity": { "vscodevim.vim": 1 },
+
+  // ── Markdown ────────────────────────────────────────────────
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.editor",
+  },
+
+  // ── Privacy / Copilot ───────────────────────────────────────
+  "telemetry.telemetryLevel": "off",
+  "github.copilot.enable": { "*": false },
+
+  // ── JSON schema domains (auto-managed by VS Code) ───────────
+  "json.schemaDownload.trustedDomains": {
+    "https://biomejs.dev": true,
+    "https://developer.microsoft.com/json-schemas/": true,
+    "https://json-schema.org/": true,
+    "https://json.schemastore.org/": true,
+    "https://raw.githubusercontent.com/devcontainers/spec/": true,
+    "https://raw.githubusercontent.com/microsoft/vscode/": true,
+    "https://schemastore.azurewebsites.net/": true,
+    "https://spec.openapis.org/": true,
+    "https://www.schemastore.org/": true,
+  },
+
+  // ── Unorganized ───────────
+  "extensions.ignoreRecommendations": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+}

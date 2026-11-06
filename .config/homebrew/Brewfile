@@ -1,33 +1,22 @@
-# Taps
-tap "anomalyco/tap"
-
 # Shell & terminal
 brew "antidote"
-brew "btop"
 brew "fd"
 brew "fzf"
-brew "herdr"
 brew "ripgrep"
 brew "starship"
 brew "zoxide"
 cask "ghostty"
 
 # Dev tools
-brew "bun"
-brew "fnm"
 brew "gh"
 brew "git"
-brew "hunk"
-brew "lazygit"
+brew "mise"
 cask "docker-desktop"
 
 # Editors
-cask "cursor"
 cask "visual-studio-code"
-cask "zed"
 
 # AI tools
-brew "anomalyco/tap/opencode"
 cask "chatgpt"
 cask "claude"
 cask "claude-code@latest"
@@ -39,14 +28,23 @@ cask "font-fira-code-nerd-font"
 # Productivity & utilities
 cask "cleanshot"
 cask "lunar"
-cask "nordvpn"
 cask "notion"
-cask "proton-pass"
 cask "raycast"
 cask "slack"
 cask "stats"
 
 # Browsers & media
+cask "firefox"
 cask "google-chrome"
 cask "helium-browser"
+cask "microsoft-edge"
 cask "spotify"
+
+# VS Code extensions
+vscode "catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc-icons"
+vscode "esbenp.prettier-vscode"
+vscode "github.vscode-pull-request-github"
+vscode "ms-vscode-remote.remote-containers"
+vscode "streetsidesoftware.code-spell-checker"
+vscode "vscodevim.vim"

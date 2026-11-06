@@ -50,31 +50,5 @@ alias ll='ls -lh'
 alias lla='ls -lAh'
 alias reload='exec zsh'
 
-# lazygit can't follow the system appearance, so pick the theme at launch:
-# Mocha lives in config.yml, Latte overrides are layered on in light mode.
-lg() {
-  local dir="${XDG_CONFIG_HOME:-$HOME/.config}/lazygit"
-  if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" != Dark ]]; then
-    LG_CONFIG_FILE="$dir/config.yml,$dir/theme-light.yml" lazygit "$@"
-  else
-    lazygit "$@"
-  fi
-}
-
-# btop can't follow the system appearance either and has no theme flag, so in
-# light mode launch it with a generated copy of btop.conf that uses Latte.
-# Settings btop saves on exit in light mode go to that copy and aren't kept.
-btop() {
-  local dir="${XDG_CONFIG_HOME:-$HOME/.config}/btop"
-  if [[ "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" != Dark ]]; then
-    local conf="${XDG_CACHE_HOME:-$HOME/.cache}/btop/btop-latte.conf"
-    mkdir -p "${conf:h}"
-    sed 's/^color_theme = .*/color_theme = "catppuccin_latte"/' "$dir/btop.conf" >| "$conf"
-    command btop --config "$conf" --themes-dir "$dir/themes" "$@"
-  else
-    command btop "$@"
-  fi
-}
-
 # Claude
 alias cc='claude'

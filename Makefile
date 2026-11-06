@@ -3,6 +3,8 @@ XDG_CONFIG_HOME ?= $(HOME)/.config
 
 REPO            := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 CONFIG_DIR      := $(REPO)/.config
+# VS Code doesn't use XDG, so its settings live in vscode/ and link here
+VSCODE_USER     := $(HOME)/Library/Application Support/Code/User
 
 .DEFAULT_GOAL := all
 .PHONY: all help link packages
@@ -31,6 +33,16 @@ link:
 		mkdir -p "$$(dirname "$$dst")"; \
 		ln -sfn "$$src" "$$dst"; \
 		printf '  --> %s\n' "$$rel"; \
+	done
+	@mkdir -p "$(VSCODE_USER)"
+	@for src in "$(REPO)"/vscode/*.json; do \
+		dst="$(VSCODE_USER)/$$(basename "$$src")"; \
+		if [ -f "$$dst" ] && [ ! -L "$$dst" ]; then \
+			mv "$$dst" "$$dst.bak"; \
+			printf '  💾 Backed up existing %s\n' "$$(basename "$$dst")"; \
+		fi; \
+		ln -sfn "$$src" "$$dst"; \
+		printf '  --> vscode/%s\n' "$$(basename "$$src")"; \
 	done
 	@echo "✅ Link step complete\n"
 packages:

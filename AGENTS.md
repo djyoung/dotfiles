@@ -6,7 +6,7 @@ Personal macOS dotfiles: a modular zsh setup plus configs for a handful of termi
 
 - `make link` writes `~/.zshenv` (exports `XDG_CONFIG_HOME` and `ZDOTDIR=$XDG_CONFIG_HOME/zsh`) and symlinks **each file** under `.config/<tool>/` into `$XDG_CONFIG_HOME/<tool>/`. Directories are real, only files are links.
 - `make packages` installs Homebrew if missing, then runs `brew bundle install --global` against `.config/homebrew/Brewfile`.
-- Because files are symlinked, editing a file in this repo takes effect immediately in `~/.config`. Runtime files (zsh history, `.zcompdump`, Antidote bundles, herdr logs and sockets, etc.) live in `~/.config` and must never be added to the repo.
+- Because files are symlinked, editing a file in this repo takes effect immediately in `~/.config`. Runtime files (zsh history, `.zcompdump`, Antidote bundles, mise installs, etc.) live in `~/.config` and must never be added to the repo.
 - A **new** file needs `make link` to get its symlink. Only files nested at least one directory deep under `.config/` are linked (`find -mindepth 2`), so nothing goes directly in `.config/`.
 
 ## Layout
@@ -16,17 +16,16 @@ Personal macOS dotfiles: a modular zsh setup plus configs for a handful of termi
 ├── zsh/        # ZDOTDIR, modular zsh config
 ├── starship/   # prompt
 ├── ghostty/    # terminal
-├── git/        # defaults + identity
-├── lazygit/    # git TUI
-├── herdr/      # terminal workspace manager
-├── hunk/       # diff viewer
-├── zed/        # editor
-├── btop/       # resource monitor (+ Catppuccin Mocha/Latte themes)
-├── opencode/   # AI coding agent (opencode.jsonc only)
+├── git/        # defaults + identity; includes ~/.config/git/config.local (untracked)
+├── mise/       # global runtime versions
 ├── gh/         # GitHub CLI (config.yml only; hosts.yml holds auth and is gitignored)
-└── homebrew/   # Brewfile (global bundle)
+└── homebrew/   # Brewfile (global bundle, incl. `vscode` extension entries)
+vscode/         # VS Code settings.json, linked into ~/Library/Application Support/Code/User
+bootstrap.sh    # new-machine setup (curl | bash); must stay idempotent
 Makefile        # link + packages targets
 ```
+
+This is the `work` branch: a slimmed-down copy of `main` for a work machine. Keep work-only changes confined to the Brewfile, `exports.zsh`, the git include, `vscode/`, `bootstrap.sh` and the removed tool configs, so `git merge main` stays conflict-free.
 
 ## Zsh conventions
 
@@ -41,9 +40,9 @@ Makefile        # link + packages targets
 
 ## Other conventions
 
-- **Theming:** everything uses Catppuccin, Mocha (dark) and Latte (light). Hex values are duplicated across the Ghostty, Zed, herdr, lazygit, btop and Starship configs, so a color change must be applied to all of them. Starship, lazygit and btop can't follow the system appearance themselves: `prompt.zsh` and the `lg`/`btop` wrappers in `aliases.zsh` check `AppleInterfaceStyle` and swap in the Latte variant.
-- **Brewfile:** entries are grouped under comment headers (Taps, Shell & terminal, Dev tools, Editors, AI tools, Fonts, Productivity & utilities). Add new packages to the matching group, alphabetized within it, using `cask` for GUI apps.
-- **Git identity** lives in `.config/git/config`. Don't change the user name or email.
+- **Theming:** everything uses Catppuccin, Mocha (dark) and Latte (light). Hex values are duplicated across the Ghostty and Starship configs, so a color change must be applied to both. Starship can't follow the system appearance itself: `prompt.zsh` checks `AppleInterfaceStyle` and swaps in the Latte variant.
+- **Brewfile:** entries are grouped under comment headers (Shell & terminal, Dev tools, Editors, AI tools, Fonts, Productivity & utilities, Browsers & media, VS Code extensions). Add new packages to the matching group, alphabetized within it, using `cask` for GUI apps.
+- **Git identity** lives in `.config/git/config`. Don't change the user name or email. The work identity goes in `~/.config/git/config.local` (written by `bootstrap.sh`), which must never be committed.
 - **README:** if you add or remove a tool, module or Make target, update the Layout / Tools / Zsh tables in `README.md` to match.
 
 ## Working in this repo

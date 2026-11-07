@@ -5,11 +5,12 @@ REPO            := $(abspath $(dir $(lastword $(MAKEFILE_LIST))))
 CONFIG_DIR      := $(REPO)/.config
 
 .DEFAULT_GOAL := all
-.PHONY: all help link packages
+.PHONY: all help link unlink packages
 
 help:
 	@echo "  make            link configs and install packages (default)"
 	@echo "  make link       write ~/.zshenv and symlink .config/"
+	@echo "  make unlink     remove symlinks and ~/.zshenv"
 	@echo "  make packages   Homebrew + Brewfile"
 	@echo ""
 	@echo "  XDG_CONFIG_HOME=$(XDG_CONFIG_HOME)"
@@ -33,6 +34,24 @@ link:
 		printf '  --> %s\n' "$$rel"; \
 	done
 	@echo "✅ Link step complete\n"
+
+unlink:
+	@echo "🔗 Unlinking from $(XDG_CONFIG_HOME)..."
+	@find "$(CONFIG_DIR)" -mindepth 2 -type f | while read -r src; do \
+		rel="$${src#$(CONFIG_DIR)/}"; \
+		dst="$(XDG_CONFIG_HOME)/$$rel"; \
+		if [ -L "$$dst" ] && [ "$$(readlink "$$dst")" = "$$src" ]; then \
+			rm "$$dst"; \
+			rmdir "$$(dirname "$$dst")" 2>/dev/null || true; \
+			printf '  --> removed %s\n' "$$rel"; \
+		fi; \
+	done
+	@if grep -q 'ZDOTDIR' "$(HOME)/.zshenv" 2>/dev/null; then \
+		rm "$(HOME)/.zshenv"; \
+		echo "🗑  Removed $(HOME)/.zshenv"; \
+	fi
+	@echo "✅ Unlink step complete\n"
+
 packages:
 	@echo "📦 Installing packages..."
 	@command -v brew >/dev/null 2>&1 || { \

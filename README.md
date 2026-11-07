@@ -29,6 +29,7 @@ After setup, restart your terminal and you're ready to go! 🚀
 | ------------------- | ------------------------------- |
 | `make` / `make all` | Link configs + install packages |
 | `make link`         | Symlinks only                   |
+| `make unlink`       | Remove symlinks and `~/.zshenv` |
 | `make packages`     | Homebrew + Brewfile only        |
 | `make help`         | List targets                    |
 

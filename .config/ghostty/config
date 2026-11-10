@@ -1,2 +1,11 @@
-font-family = FiraCode Nerd Font
-theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+# Colors
+theme = "dark:Catppuccin Mocha,light:Catppuccin Latte"
+palette-generate = true
+
+# Window
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
+
+# Fonts
+font-family = "FiraCode Nerd Font"

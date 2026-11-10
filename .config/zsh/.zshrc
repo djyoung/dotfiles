@@ -1,9 +1,3 @@
-source "${ZDOTDIR}/exports.zsh"
-source "${ZDOTDIR}/options.zsh"
-source "${ZDOTDIR}/plugins.zsh"
-source "${ZDOTDIR}/completion.zsh"
-source "${ZDOTDIR}/plugins_post.zsh"
-source "${ZDOTDIR}/keybindings.zsh"
-source "${ZDOTDIR}/navigation.zsh"
-source "${ZDOTDIR}/prompt.zsh"
-source "${ZDOTDIR}/aliases.zsh"
+# Starship
+export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/config.toml"
+eval "$(starship init zsh)"
